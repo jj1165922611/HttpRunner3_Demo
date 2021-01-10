@@ -1,6 +1,8 @@
 config:
     name: login
-    variables: {}
+    variables:
+        password: ${ENV(PASSWORD)}
+        phone:  ${ENV(USERNAME)}
     verify: false
 teststeps:
 -   name: /login
@@ -106,8 +108,8 @@ teststeps:
             reg_prepareId: 176eb7f62f6-176eb7f625b-4acb-af0f-976a9096745c
             use-redesign: '1'
         data:
-            password: 1220jj
-            phone: '17625416583'
+            password: ${password}
+            phone: ${phone}
             remember: 'true'
         headers:
             accept: application/json, text/javascript, */*; q=0.01

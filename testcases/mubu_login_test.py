@@ -7,7 +7,11 @@ from httprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
 
 class TestCaseMubuLogin(HttpRunner):
 
-    config = Config("login").verify(False)
+    config = (
+        Config("login")
+        .variables(**{"password": "${ENV(PASSWORD)}", "phone": "${ENV(USERNAME)}"})
+        .verify(False)
+    )
 
     teststeps = [
         Step(
@@ -141,7 +145,7 @@ class TestCaseMubuLogin(HttpRunner):
                 }
             )
             .with_data(
-                {"password": "1220jj", "phone": "17625416583", "remember": "true"}
+                {"password": "${password}", "phone": "${phone}", "remember": "true"}
             )
             .validate()
             .assert_equal("status_code", 200)
