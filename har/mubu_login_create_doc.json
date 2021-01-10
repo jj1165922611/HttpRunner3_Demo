@@ -1,0 +1,2113 @@
+{
+    "config": {
+        "name": "testcase description",
+        "variables": {},
+        "verify": false
+    },
+    "teststeps": [
+        {
+            "name": "/login",
+            "request": {
+                "url": "https://mubu.com/login",
+                "method": "GET",
+                "cookies": {
+                    "data_unique_id": "14a656ae-aec4-4715-8e5b-cead72d29520",
+                    "language": "en-US",
+                    "country": "US",
+                    "reg_from": "https%3A%2F%2Fwww.google.com.hk%2F",
+                    "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
+                    "_ga": "GA1.2.1478645020.1610244987",
+                    "_gid": "GA1.2.2087299800.1610244987",
+                    "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1610244987",
+                    "use-redesign": "1",
+                    "csrf_token": "67f4cb65-5298-4537-8eb5-75b5d23ca844",
+                    "reg_prepareId": "176eb5071a1-176eb507036-411d-8eab-688572c3c507",
+                    "reg_focusId": "3384c4ea-e070-411d-8eab-176eb5077df",
+                    "SESSION": "2be814d2-140d-4105-9d9b-ba571dfb5f20",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "SLARDAR_WEB_ID": "02193c7e-4a40-466d-b63e-8e26dbf10c1b",
+                    "_gat": "1",
+                    "Hm_lpvt_4426cbb0486a79ea049b4ad52d81b504": "1610265785"
+                },
+                "headers": {
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "upgrade-insecure-requests": "1",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                    "sec-fetch-site": "same-origin",
+                    "sec-fetch-mode": "navigate",
+                    "sec-fetch-user": "?1",
+                    "sec-fetch-dest": "document",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/reg/check_phone",
+            "request": {
+                "url": "https://mubu.com/api/reg/check_phone",
+                "method": "POST",
+                "cookies": {
+                    "data_unique_id": "14a656ae-aec4-4715-8e5b-cead72d29520",
+                    "language": "en-US",
+                    "country": "US",
+                    "reg_from": "https%3A%2F%2Fwww.google.com.hk%2F",
+                    "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
+                    "_ga": "GA1.2.1478645020.1610244987",
+                    "_gid": "GA1.2.2087299800.1610244987",
+                    "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1610244987",
+                    "use-redesign": "1",
+                    "csrf_token": "67f4cb65-5298-4537-8eb5-75b5d23ca844",
+                    "SESSION": "2be814d2-140d-4105-9d9b-ba571dfb5f20",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "_gat": "1",
+                    "SLARDAR_WEB_ID": "0503d297-48d4-447b-b478-75c43e696f56",
+                    "Hm_lpvt_4426cbb0486a79ea049b4ad52d81b504": "1610265790",
+                    "reg_focusId": "57b4dd52-c035-4533-a01b-176eb52086a",
+                    "reg_prepareId": "176eb521c0a-176eb520756-4533-a01b-82999dcceb4e"
+                },
+                "headers": {
+                    "content-length": "17",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "accept": "application/json, text/javascript, */*; q=0.01",
+                    "x-requested-with": "XMLHttpRequest",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-origin",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/login",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "data": {
+                    "phone": "17625416583"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.msg",
+                        null
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/login/password",
+            "request": {
+                "url": "https://mubu.com/login/password",
+                "method": "GET",
+                "cookies": {
+                    "data_unique_id": "14a656ae-aec4-4715-8e5b-cead72d29520",
+                    "language": "en-US",
+                    "country": "US",
+                    "reg_from": "https%3A%2F%2Fwww.google.com.hk%2F",
+                    "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
+                    "_ga": "GA1.2.1478645020.1610244987",
+                    "_gid": "GA1.2.2087299800.1610244987",
+                    "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1610244987",
+                    "use-redesign": "1",
+                    "csrf_token": "67f4cb65-5298-4537-8eb5-75b5d23ca844",
+                    "SESSION": "2be814d2-140d-4105-9d9b-ba571dfb5f20",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "_gat": "1",
+                    "SLARDAR_WEB_ID": "0503d297-48d4-447b-b478-75c43e696f56",
+                    "Hm_lpvt_4426cbb0486a79ea049b4ad52d81b504": "1610265790",
+                    "reg_focusId": "57b4dd52-c035-4533-a01b-176eb52086a",
+                    "reg_prepareId": "176eb521c0a-176eb520756-4533-a01b-82999dcceb4e"
+                },
+                "headers": {
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "upgrade-insecure-requests": "1",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                    "sec-fetch-site": "same-origin",
+                    "sec-fetch-mode": "navigate",
+                    "sec-fetch-user": "?1",
+                    "sec-fetch-dest": "document",
+                    "referer": "https://mubu.com/login",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/api/login/submit",
+            "request": {
+                "url": "https://mubu.com/api/login/submit",
+                "method": "POST",
+                "cookies": {
+                    "data_unique_id": "14a656ae-aec4-4715-8e5b-cead72d29520",
+                    "language": "en-US",
+                    "country": "US",
+                    "reg_from": "https%3A%2F%2Fwww.google.com.hk%2F",
+                    "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
+                    "_ga": "GA1.2.1478645020.1610244987",
+                    "_gid": "GA1.2.2087299800.1610244987",
+                    "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1610244987",
+                    "use-redesign": "1",
+                    "csrf_token": "67f4cb65-5298-4537-8eb5-75b5d23ca844",
+                    "SESSION": "2be814d2-140d-4105-9d9b-ba571dfb5f20",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "_gat": "1",
+                    "reg_focusId": "57b4dd52-c035-4533-a01b-176eb52086a",
+                    "reg_prepareId": "176eb521c0a-176eb520756-4533-a01b-82999dcceb4e",
+                    "SLARDAR_WEB_ID": "e2dd7d89-b83e-4fcb-9e2e-b73528e58120",
+                    "Hm_lpvt_4426cbb0486a79ea049b4ad52d81b504": "1610265801"
+                },
+                "headers": {
+                    "content-length": "47",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "accept": "application/json, text/javascript, */*; q=0.01",
+                    "x-requested-with": "XMLHttpRequest",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-origin",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/login/password",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "data": {
+                    "phone": "17625416583",
+                    "password": "1220jj",
+                    "remember": "true"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.msg",
+                        null
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/app",
+            "request": {
+                "url": "https://mubu.com/app",
+                "method": "GET",
+                "cookies": {
+                    "data_unique_id": "14a656ae-aec4-4715-8e5b-cead72d29520",
+                    "language": "en-US",
+                    "country": "US",
+                    "reg_from": "https%3A%2F%2Fwww.google.com.hk%2F",
+                    "reg_entrance": "https%3A%2F%2Fmubu.com%2F",
+                    "_ga": "GA1.2.1478645020.1610244987",
+                    "_gid": "GA1.2.2087299800.1610244987",
+                    "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1610244987",
+                    "use-redesign": "1",
+                    "csrf_token": "67f4cb65-5298-4537-8eb5-75b5d23ca844",
+                    "SESSION": "2be814d2-140d-4105-9d9b-ba571dfb5f20",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "_gat": "1",
+                    "reg_focusId": "57b4dd52-c035-4533-a01b-176eb52086a",
+                    "reg_prepareId": "176eb521c0a-176eb520756-4533-a01b-82999dcceb4e",
+                    "SLARDAR_WEB_ID": "e2dd7d89-b83e-4fcb-9e2e-b73528e58120",
+                    "Hm_lpvt_4426cbb0486a79ea049b4ad52d81b504": "1610265801",
+                    "Jwt-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "user_persistence": "fb76fe60-4f34-463b-8e58-76ad1c09d90f"
+                },
+                "headers": {
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "upgrade-insecure-requests": "1",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                    "sec-fetch-site": "same-origin",
+                    "sec-fetch-mode": "navigate",
+                    "sec-fetch-user": "?1",
+                    "sec-fetch-dest": "document",
+                    "referer": "https://mubu.com/login/password",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/",
+            "request": {
+                "url": "https://api2.mubu.com/v3/",
+                "method": "GET",
+                "cookies": {
+                    "_ga": "GA1.2.1478645020.1610244987",
+                    "_gid": "GA1.2.2087299800.1610244987",
+                    "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1610244987",
+                    "use-redesign": "1",
+                    "_gat": "1",
+                    "SLARDAR_WEB_ID": "e2dd7d89-b83e-4fcb-9e2e-b73528e58120",
+                    "Hm_lpvt_4426cbb0486a79ea049b4ad52d81b504": "1610265801",
+                    "_gat_UA-77727571-3": "1"
+                },
+                "headers": {
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "no-cors",
+                    "sec-fetch-dest": "image",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        17
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.msg",
+                        "illegal request"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/message/get_message_unread",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/message/get_message_unread",
+                "method": "POST",
+                "headers": {
+                    "content-length": "10",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "4f9bc6a8-47f0-4930-94b2-44a0fa770a48",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "page": 1
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/list/get_all_documents_page",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/list/get_all_documents_page",
+                "method": "POST",
+                "headers": {
+                    "content-length": "12",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "f612c083-627f-4602-b36b-4382d67f4be6",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "start": ""
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/user/profile",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/user/profile",
+                "method": "POST",
+                "headers": {
+                    "content-length": "0",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "4f5531bd-eaea-4290-8fe8-f84bbc822fb6",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "data": ""
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/list/star_relation/get",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/list/star_relation/get",
+                "method": "GET",
+                "headers": {
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "33bc9b97-262c-400b-aa41-47f26b54d7c0",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/list/item_count",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/list/item_count",
+                "method": "POST",
+                "headers": {
+                    "content-length": "30",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "6233dc20-f706-4900-8936-818a397095fa",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "folderId": 0,
+                    "source": "home"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/user/get_user_params",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/user/get_user_params",
+                "method": "POST",
+                "headers": {
+                    "content-length": "0",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "f39a4f2f-490a-451c-a5d5-0adc112f4ac9",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "data": ""
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/advertisement/get",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/advertisement/get",
+                "method": "POST",
+                "headers": {
+                    "content-length": "10",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "4f778234-5812-4bba-b5ee-da0dd21708b2",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "type": 1
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/list/item_count",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/list/item_count",
+                "method": "POST",
+                "headers": {
+                    "content-length": "30",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "6233dc20-f706-4900-8936-818a397095fa",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "folderId": 0,
+                    "source": "home"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/list/create_doc",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/list/create_doc",
+                "method": "POST",
+                "headers": {
+                    "content-length": "25",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "8890d08b-fe73-4e2b-ae6b-8377254a99e7",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "folderId": "0",
+                    "type": 0
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/list/item_count",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/list/item_count",
+                "method": "POST",
+                "headers": {
+                    "content-length": "30",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "ffc29479-99d7-4c4f-955c-7aea3a489331",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "folderId": 0,
+                    "source": "home"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/user/current_level",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/user/current_level",
+                "method": "POST",
+                "headers": {
+                    "content-length": "29",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "f78e9dcf-9139-4eb9-bdef-f5ed96140d41",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "document_id": "46-MLBMuOth"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/document/edit/get",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/document/edit/get",
+                "method": "POST",
+                "headers": {
+                    "content-length": "37",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "c1d2ceb2-5b58-46d6-9383-045a2a0366e9",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "docId": "46-MLBMuOth",
+                    "password": ""
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/refer/doc/list",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/refer/doc/list",
+                "method": "POST",
+                "headers": {
+                    "content-length": "29",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "e1a29120-c487-4e32-93fb-498b8326f7e9",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "targetDocId": "46-MLBMuOth"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/colla/register",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/colla/register",
+                "method": "GET",
+                "headers": {
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "x-request-id": "0107c767-4e59-4d47-97cf-c0bef7126fe0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/user/get_invite_count",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/user/get_invite_count",
+                "method": "GET",
+                "headers": {
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "bb64b09f-37bc-438e-94f1-a40b8a85adc3",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/colla/members",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/colla/members",
+                "params": {
+                    "memberId": "6968573961924942",
+                    "documentId": "46-MLBMuOth"
+                },
+                "method": "OPTIONS",
+                "headers": {
+                    "accept": "*/*",
+                    "access-control-request-method": "GET",
+                    "access-control-request-headers": "data-unique-id,jwt-token,request-id,x-request-id",
+                    "origin": "https://mubu.com",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/colla/members",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/colla/members",
+                "params": {
+                    "memberId": "6968573961924942",
+                    "documentId": "46-MLBMuOth"
+                },
+                "method": "GET",
+                "headers": {
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "request-id": "members:6968573961924942:1610265810175",
+                    "x-request-id": "bf51aedc-f812-4fc1-a7f3-36cbbfd8f4a4",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/colla/message",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/colla/message",
+                "method": "POST",
+                "headers": {
+                    "content-length": "571",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "member-id": "6968573961924942",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "request-id": "MESSAGE:9564913:6968573961924942:3",
+                    "x-request-id": "bf3394e1-1ad0-47b9-9ac7-2db66d57b83c",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "engineType": "MUBU",
+                    "messageType": "BROADCAST",
+                    "reqId": 3,
+                    "requestId": "MESSAGE:9564913:6968573961924942:3",
+                    "token": "46-MLBMuOth",
+                    "data": {
+                        "message": {
+                            "type": "CHANGE",
+                            "documentId": "46-MLBMuOth",
+                            "version": 0,
+                            "content": [
+                                {
+                                    "name": "nameChanged",
+                                    "title": "d",
+                                    "original": ""
+                                },
+                                {
+                                    "name": "nameChanged",
+                                    "title": "de",
+                                    "original": "d"
+                                },
+                                {
+                                    "name": "nameChanged",
+                                    "title": "dem",
+                                    "original": "de"
+                                },
+                                {
+                                    "name": "nameChanged",
+                                    "title": "demo",
+                                    "original": "dem"
+                                },
+                                {
+                                    "name": "nameChanged",
+                                    "title": "demo1",
+                                    "original": "demo"
+                                }
+                            ]
+                        }
+                    },
+                    "context": {
+                        "os": "Windows",
+                        "osVersion": "NT 6.1",
+                        "appVersion": "2.0.0.553",
+                        "platform": "web"
+                    }
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/refer/search_refers",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/refer/search_refers",
+                "method": "POST",
+                "headers": {
+                    "content-length": "53",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "8d2838a3-f045-4abd-a379-2546ac692cf7",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "docId": "46-MLBMuOth",
+                    "keywords": "demo1",
+                    "option": 1
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/colla/message",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/colla/message",
+                "method": "POST",
+                "headers": {
+                    "content-length": "459",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "member-id": "6968573961924942",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "request-id": "MESSAGE:9564913:6968573961924942:5",
+                    "x-request-id": "5305c0d8-1980-4dde-a953-305d7b15edb5",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "engineType": "MUBU",
+                    "messageType": "BROADCAST",
+                    "reqId": 5,
+                    "requestId": "MESSAGE:9564913:6968573961924942:5",
+                    "token": "46-MLBMuOth",
+                    "data": {
+                        "message": {
+                            "type": "CHANGE",
+                            "documentId": "46-MLBMuOth",
+                            "version": 1,
+                            "content": [
+                                {
+                                    "name": "create",
+                                    "created": [
+                                        {
+                                            "index": 0,
+                                            "parentId": null,
+                                            "node": {
+                                                "id": "UBzjYW2r5K",
+                                                "text": "",
+                                                "modified": 1610265814639,
+                                                "children": []
+                                            },
+                                            "path": [
+                                                "nodes",
+                                                0
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "context": {
+                        "os": "Windows",
+                        "osVersion": "NT 6.1",
+                        "appVersion": "2.0.0.553",
+                        "platform": "web"
+                    }
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/colla/message",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/colla/message",
+                "method": "POST",
+                "headers": {
+                    "content-length": "851",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "member-id": "6968573961924942",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "request-id": "MESSAGE:9564913:6968573961924942:7",
+                    "x-request-id": "dbc779ef-bf38-4697-a3d0-f23f2e528407",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "engineType": "MUBU",
+                    "messageType": "BROADCAST",
+                    "reqId": 7,
+                    "requestId": "MESSAGE:9564913:6968573961924942:7",
+                    "token": "46-MLBMuOth",
+                    "data": {
+                        "message": {
+                            "type": "CHANGE",
+                            "documentId": "46-MLBMuOth",
+                            "version": 2,
+                            "content": [
+                                {
+                                    "name": "update",
+                                    "updated": [
+                                        {
+                                            "updated": {
+                                                "id": "UBzjYW2r5K",
+                                                "text": "<span>1</span>",
+                                                "modified": 1610265815459
+                                            },
+                                            "original": {
+                                                "id": "UBzjYW2r5K",
+                                                "text": "",
+                                                "modified": 1610265814639
+                                            },
+                                            "path": [
+                                                "nodes",
+                                                0
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "create",
+                                    "created": [
+                                        {
+                                            "index": 1,
+                                            "parentId": null,
+                                            "node": {
+                                                "id": "ctOcZEdVSq",
+                                                "text": "",
+                                                "modified": 1610265815555,
+                                                "children": []
+                                            },
+                                            "path": [
+                                                "nodes",
+                                                1
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "update",
+                                    "updated": [
+                                        {
+                                            "updated": {
+                                                "id": "ctOcZEdVSq",
+                                                "text": "<span>2</span>",
+                                                "modified": 1610265815745
+                                            },
+                                            "original": {
+                                                "id": "ctOcZEdVSq",
+                                                "text": "",
+                                                "modified": 1610265815555
+                                            },
+                                            "path": [
+                                                "nodes",
+                                                1
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "context": {
+                        "os": "Windows",
+                        "osVersion": "NT 6.1",
+                        "appVersion": "2.0.0.553",
+                        "platform": "web"
+                    }
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/colla/message",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/colla/message",
+                "method": "POST",
+                "headers": {
+                    "content-length": "808",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "member-id": "6968573961924942",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "request-id": "MESSAGE:9564913:6968573961924942:9",
+                    "x-request-id": "bdfbc197-8aa3-4fd5-87b7-3fc7cc2ec5a9",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "engineType": "MUBU",
+                    "messageType": "BROADCAST",
+                    "reqId": 9,
+                    "requestId": "MESSAGE:9564913:6968573961924942:9",
+                    "token": "46-MLBMuOth",
+                    "data": {
+                        "message": {
+                            "type": "CHANGE",
+                            "documentId": "46-MLBMuOth",
+                            "version": 3,
+                            "content": [
+                                {
+                                    "name": "create",
+                                    "created": [
+                                        {
+                                            "index": 2,
+                                            "parentId": null,
+                                            "node": {
+                                                "id": "56kAxmylnh",
+                                                "text": "",
+                                                "modified": 1610265815884,
+                                                "children": []
+                                            },
+                                            "path": [
+                                                "nodes",
+                                                2
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "update",
+                                    "updated": [
+                                        {
+                                            "updated": {
+                                                "id": "56kAxmylnh",
+                                                "text": "<span>3</span>",
+                                                "modified": 1610265816053
+                                            },
+                                            "original": {
+                                                "id": "56kAxmylnh",
+                                                "text": "",
+                                                "modified": 1610265815884
+                                            },
+                                            "path": [
+                                                "nodes",
+                                                2
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "create",
+                                    "created": [
+                                        {
+                                            "index": 3,
+                                            "parentId": null,
+                                            "node": {
+                                                "id": "uxHayFU4hN",
+                                                "text": "",
+                                                "modified": 1610265816251,
+                                                "children": []
+                                            },
+                                            "path": [
+                                                "nodes",
+                                                3
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "context": {
+                        "os": "Windows",
+                        "osVersion": "NT 6.1",
+                        "appVersion": "2.0.0.553",
+                        "platform": "web"
+                    }
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/colla/message",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/colla/message",
+                "method": "POST",
+                "headers": {
+                    "content-length": "461",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "member-id": "6968573961924942",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "request-id": "MESSAGE:9564913:6968573961924942:11",
+                    "x-request-id": "bd2c3de7-c846-4283-93e7-949ffbfca3ed",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "engineType": "MUBU",
+                    "messageType": "BROADCAST",
+                    "reqId": 11,
+                    "requestId": "MESSAGE:9564913:6968573961924942:11",
+                    "token": "46-MLBMuOth",
+                    "data": {
+                        "message": {
+                            "type": "CHANGE",
+                            "documentId": "46-MLBMuOth",
+                            "version": 4,
+                            "content": [
+                                {
+                                    "name": "delete",
+                                    "deleted": [
+                                        {
+                                            "parentId": null,
+                                            "index": 3,
+                                            "node": {
+                                                "id": "uxHayFU4hN",
+                                                "text": "",
+                                                "modified": 1610265816251,
+                                                "children": []
+                                            },
+                                            "path": [
+                                                "nodes",
+                                                3
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "context": {
+                        "os": "Windows",
+                        "osVersion": "NT 6.1",
+                        "appVersion": "2.0.0.553",
+                        "platform": "web"
+                    }
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/user/current_level",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/user/current_level",
+                "method": "POST",
+                "headers": {
+                    "content-length": "29",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "f78e9dcf-9139-4eb9-bdef-f5ed96140d41",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "document_id": "3sc0cgYcFZh"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/refer/doc/list",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/refer/doc/list",
+                "method": "POST",
+                "headers": {
+                    "content-length": "29",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "97abc5c8-7fd2-4bf6-b798-703d037cf50c",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "targetDocId": "3sc0cgYcFZh"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/document/edit/get",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/document/edit/get",
+                "method": "POST",
+                "headers": {
+                    "content-length": "37",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "c1d2ceb2-5b58-46d6-9383-045a2a0366e9",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "docId": "3sc0cgYcFZh",
+                    "password": ""
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/colla/register",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/colla/register",
+                "method": "GET",
+                "headers": {
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "x-request-id": "cbe560c7-5c29-4c26-ae9f-e7f5c6449f14",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/colla/members",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/colla/members",
+                "params": {
+                    "memberId": "3524331434256210",
+                    "documentId": "3sc0cgYcFZh"
+                },
+                "method": "OPTIONS",
+                "headers": {
+                    "accept": "*/*",
+                    "access-control-request-method": "GET",
+                    "access-control-request-headers": "data-unique-id,jwt-token,request-id,x-request-id",
+                    "origin": "https://mubu.com",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/colla/members",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/colla/members",
+                "params": {
+                    "memberId": "3524331434256210",
+                    "documentId": "3sc0cgYcFZh"
+                },
+                "method": "GET",
+                "headers": {
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "request-id": "members:3524331434256210:1610265819694",
+                    "x-request-id": "daee0513-fdd8-49a9-b657-94926d4bcb1d",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/refer/search_refers",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/refer/search_refers",
+                "method": "POST",
+                "headers": {
+                    "content-length": "52",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "e9dc171c-ed8b-4107-8b25-19ac402d97a8",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "docId": "3sc0cgYcFZh",
+                    "keywords": "demo",
+                    "option": 1
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/colla/message",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/colla/message",
+                "method": "POST",
+                "headers": {
+                    "content-length": "228",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "member-id": "6968573961924942",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "request-id": "MESSAGE:9564913:6968573961924942:13",
+                    "x-request-id": "eb2cc1eb-b174-4428-bc11-e20f6a78d4e5",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "engineType": "MUBU",
+                    "messageType": "UNWATCH",
+                    "reqId": 13,
+                    "requestId": "MESSAGE:9564913:6968573961924942:13",
+                    "token": "46-MLBMuOth",
+                    "data": {},
+                    "context": {
+                        "os": "Windows",
+                        "osVersion": "NT 6.1",
+                        "appVersion": "2.0.0.553",
+                        "platform": "web"
+                    }
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/list/batch_delete",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/list/batch_delete",
+                "method": "POST",
+                "headers": {
+                    "content-length": "37",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "c5ac6cf6-d823-4b41-9f81-be952874eca8",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "docs": [
+                        "3sc0cgYcFZh"
+                    ],
+                    "folders": []
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/advertisement/get",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/advertisement/get",
+                "method": "POST",
+                "headers": {
+                    "content-length": "10",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "dc33ecbd-f69f-48a6-9a50-f80979089729",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "type": 1
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/list/item_count",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/list/item_count",
+                "method": "POST",
+                "headers": {
+                    "content-length": "30",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "x-request-id": "248e10cc-81ae-4d78-8952-d226803500d3",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "folderId": 0,
+                    "source": "home"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/v3/api/colla/message",
+            "request": {
+                "url": "https://api2.mubu.com/v3/api/colla/message",
+                "method": "POST",
+                "headers": {
+                    "content-length": "226",
+                    "sec-ch-ua": "\"Google Chrome\";v=\"87\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"87\"",
+                    "sec-ch-ua-mobile": "?0",
+                    "member-id": "3524331434256210",
+                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+                    "data-unique-id": "43b6ca40-531a-11eb-9831-171779cebe31",
+                    "content-type": "application/json;charset=UTF-8",
+                    "accept": "application/json, text/plain, */*",
+                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg1NzgwMiwiaWF0IjoxNjEwMjY1ODAyfQ.SWbLkjpqUFK44IqCk0jmq-UFGAIvOpaW_cYSAxP1vEMujinoweYzoqq2r8lw7KFiz-g-C1DUGAv7mUlamCa5eA",
+                    "request-id": "MESSAGE:9564913:3524331434256210:4",
+                    "x-request-id": "9b0efc18-2a15-4a6d-92a7-0aa5e9252fae",
+                    "version": "3.0.0",
+                    "origin": "https://mubu.com",
+                    "sec-fetch-site": "same-site",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-dest": "empty",
+                    "referer": "https://mubu.com/",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "zh-CN,zh;q=0.9"
+                },
+                "json": {
+                    "engineType": "MUBU",
+                    "messageType": "UNWATCH",
+                    "reqId": 4,
+                    "requestId": "MESSAGE:9564913:3524331434256210:4",
+                    "token": "3sc0cgYcFZh",
+                    "data": {},
+                    "context": {
+                        "os": "Windows",
+                        "osVersion": "NT 6.1",
+                        "appVersion": "2.0.0.553",
+                        "platform": "web"
+                    }
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "body.code",
+                        0
+                    ]
+                }
+            ]
+        }
+    ]
+}
