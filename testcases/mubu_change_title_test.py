@@ -15,219 +15,14 @@ from testcases.mubu_create_doc_test import TestCaseMubuCreateDoc as MubuCreateDo
 
 class TestCaseMubuChangeTitle(HttpRunner):
 
-    config = Config("change title").verify(False)
+    config = (
+        Config("change title")
+        .variables(**{"newTitle": "newTitle_${get_timestamp()}"})
+        .verify(False)
+    )
 
     teststeps = [
         Step(RunTestCase("create new doc").call(MubuCreateDoc).export(*["documentId"])),
-        Step(
-            RunRequest("/v3/api/colla/message")
-            .post("https://api2.mubu.com/v3/api/colla/message")
-            .with_headers(
-                **{
-                    "accept": "application/json, text/plain, */*",
-                    "accept-encoding": "gzip, deflate, br",
-                    "accept-language": "zh-CN,zh;q=0.9",
-                    "content-length": "363",
-                    "content-type": "application/json;charset=UTF-8",
-                    "data-unique-id": "0ab1e930-5321-11eb-a1bd-ad0c581d182d",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg",
-                    "member-id": "6646311528456261",
-                    "origin": "https://mubu.com",
-                    "referer": "https://mubu.com/",
-                    "request-id": "MESSAGE:9564913:6646311528456261:4",
-                    "sec-ch-ua": '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"',
-                    "sec-ch-ua-mobile": "?0",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-site",
-                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
-                    "version": "3.0.0",
-                    "x-request-id": "58088de0-fb28-4646-94a0-3b61f02d4a98",
-                }
-            )
-            .with_json(
-                {
-                    "context": {
-                        "appVersion": "2.0.0.553",
-                        "os": "Windows",
-                        "osVersion": "NT 6.1",
-                        "platform": "web",
-                    },
-                    "data": {
-                        "message": {
-                            "content": [
-                                {"name": "nameChanged", "original": "", "title": "德玛，"}
-                            ],
-                            "documentId": "${documentId}",
-                            "type": "CHANGE",
-                            "version": 0,
-                        }
-                    },
-                    "engineType": "MUBU",
-                    "messageType": "BROADCAST",
-                    "reqId": 4,
-                    "requestId": "MESSAGE:9564913:6646311528456261:4",
-                    "token": "${documentId}",
-                }
-            )
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
-        Step(
-            RunRequest("/v3/api/colla/message")
-            .post("https://api2.mubu.com/v3/api/colla/message")
-            .with_headers(
-                **{
-                    "accept": "application/json, text/plain, */*",
-                    "accept-encoding": "gzip, deflate, br",
-                    "accept-language": "zh-CN,zh;q=0.9",
-                    "content-length": "609",
-                    "content-type": "application/json;charset=UTF-8",
-                    "data-unique-id": "0ab1e930-5321-11eb-a1bd-ad0c581d182d",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg",
-                    "member-id": "6646311528456261",
-                    "origin": "https://mubu.com",
-                    "referer": "https://mubu.com/",
-                    "request-id": "MESSAGE:9564913:6646311528456261:5",
-                    "sec-ch-ua": '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"',
-                    "sec-ch-ua-mobile": "?0",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-site",
-                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
-                    "version": "3.0.0",
-                    "x-request-id": "2446123c-2b79-45ee-b990-9a2a3cd39086",
-                }
-            )
-            .with_json(
-                {
-                    "context": {
-                        "appVersion": "2.0.0.553",
-                        "os": "Windows",
-                        "osVersion": "NT 6.1",
-                        "platform": "web",
-                    },
-                    "data": {
-                        "message": {
-                            "content": [
-                                {
-                                    "name": "nameChanged",
-                                    "original": "德玛，",
-                                    "title": "德玛，",
-                                },
-                                {
-                                    "name": "nameChanged",
-                                    "original": "德玛，",
-                                    "title": "德玛，",
-                                },
-                                {
-                                    "name": "nameChanged",
-                                    "original": "德玛，",
-                                    "title": "德玛",
-                                },
-                                {"name": "nameChanged", "original": "德玛", "title": "德"},
-                                {"name": "nameChanged", "original": "德", "title": ""},
-                            ],
-                            "documentId": "${documentId}",
-                            "type": "CHANGE",
-                            "version": 1,
-                        }
-                    },
-                    "engineType": "MUBU",
-                    "messageType": "BROADCAST",
-                    "reqId": 5,
-                    "requestId": "MESSAGE:9564913:6646311528456261:5",
-                    "token": "${documentId}",
-                }
-            )
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
-        Step(
-            RunRequest("/v3/api/refer/search_refers")
-            .post("https://api2.mubu.com/v3/api/refer/search_refers")
-            .with_headers(
-                **{
-                    "accept": "application/json, text/plain, */*",
-                    "accept-encoding": "gzip, deflate, br",
-                    "accept-language": "zh-CN,zh;q=0.9",
-                    "content-length": "57",
-                    "content-type": "application/json;charset=UTF-8",
-                    "data-unique-id": "0ab1e930-5321-11eb-a1bd-ad0c581d182d",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg",
-                    "origin": "https://mubu.com",
-                    "referer": "https://mubu.com/",
-                    "sec-ch-ua": '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"',
-                    "sec-ch-ua-mobile": "?0",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-site",
-                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
-                    "x-request-id": "c5ddb0ec-5e19-4bb0-bb6a-1fe9dc649669",
-                }
-            )
-            .with_json({"docId": "${documentId}", "keywords": "德玛，", "option": 1})
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
-        Step(
-            RunRequest("/v3/api/colla/message")
-            .post("https://api2.mubu.com/v3/api/colla/message")
-            .with_headers(
-                **{
-                    "accept": "application/json, text/plain, */*",
-                    "accept-encoding": "gzip, deflate, br",
-                    "accept-language": "zh-CN,zh;q=0.9",
-                    "content-length": "358",
-                    "content-type": "application/json;charset=UTF-8",
-                    "data-unique-id": "0ab1e930-5321-11eb-a1bd-ad0c581d182d",
-                    "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg",
-                    "member-id": "6646311528456261",
-                    "origin": "https://mubu.com",
-                    "referer": "https://mubu.com/",
-                    "request-id": "MESSAGE:9564913:6646311528456261:7",
-                    "sec-ch-ua": '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"',
-                    "sec-ch-ua-mobile": "?0",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-site",
-                    "user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
-                    "version": "3.0.0",
-                    "x-request-id": "5fce5550-ec22-44d6-9798-8ad1ce7cb66b",
-                }
-            )
-            .with_json(
-                {
-                    "context": {
-                        "appVersion": "2.0.0.553",
-                        "os": "Windows",
-                        "osVersion": "NT 6.1",
-                        "platform": "web",
-                    },
-                    "data": {
-                        "message": {
-                            "content": [
-                                {"name": "nameChanged", "original": "", "title": "demo"}
-                            ],
-                            "documentId": "${documentId}",
-                            "type": "CHANGE",
-                            "version": 2,
-                        }
-                    },
-                    "engineType": "MUBU",
-                    "messageType": "BROADCAST",
-                    "reqId": 7,
-                    "requestId": "MESSAGE:9564913:6646311528456261:7",
-                    "token": "${documentId}",
-                }
-            )
-            .validate()
-            .assert_equal("status_code", 200)
-            .assert_equal("body.code", 0)
-        ),
         Step(
             RunRequest("/v3/api/colla/message")
             .post("https://api2.mubu.com/v3/api/colla/message")
@@ -268,7 +63,7 @@ class TestCaseMubuChangeTitle(HttpRunner):
                                 {
                                     "name": "nameChanged",
                                     "original": "demo",
-                                    "title": "demo2",
+                                    "title": "${newTitle}",
                                 },
                                 {
                                     "created": [
@@ -326,7 +121,9 @@ class TestCaseMubuChangeTitle(HttpRunner):
                     "x-request-id": "e976a316-8d4f-46f2-9e78-904495c0154c",
                 }
             )
-            .with_json({"docId": "${documentId}", "keywords": "demo2", "option": 1})
+            .with_json(
+                {"docId": "${documentId}", "keywords": "${newTitle}", "option": 1}
+            )
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
