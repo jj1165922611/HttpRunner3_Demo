@@ -2,7 +2,7 @@ config:
     name: testcase description
     variables: {}
     verify: false
-teststeps:git
+teststeps:
 -   name: /login
     request:
         cookies:

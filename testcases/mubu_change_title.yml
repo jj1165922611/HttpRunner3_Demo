@@ -1,0 +1,674 @@
+config:
+    name: change title
+    variables: {}
+    verify: false
+teststeps:
+
+-   name: create new doc
+    testcase: testcases/mubu_create_doc.yml
+
+-   name: /v3/api/colla/message
+    request:
+        headers:
+            accept: application/json, text/plain, */*
+            accept-encoding: gzip, deflate, br
+            accept-language: zh-CN,zh;q=0.9
+            content-length: '363'
+            content-type: application/json;charset=UTF-8
+            data-unique-id: 0ab1e930-5321-11eb-a1bd-ad0c581d182d
+            jwt-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg
+            member-id: '6646311528456261'
+            origin: https://mubu.com
+            referer: https://mubu.com/
+            request-id: MESSAGE:9564913:6646311528456261:4
+            sec-ch-ua: '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"'
+            sec-ch-ua-mobile: ?0
+            sec-fetch-dest: empty
+            sec-fetch-mode: cors
+            sec-fetch-site: same-site
+            user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+            version: 3.0.0
+            x-request-id: 58088de0-fb28-4646-94a0-3b61f02d4a98
+        json:
+            context:
+                appVersion: 2.0.0.553
+                os: Windows
+                osVersion: NT 6.1
+                platform: web
+            data:
+                message:
+                    content:
+                    -   name: nameChanged
+                        original: ''
+                        title: 德玛，
+                    documentId: ${documentId}
+                    type: CHANGE
+                    version: 0
+            engineType: MUBU
+            messageType: BROADCAST
+            reqId: 4
+            requestId: MESSAGE:9564913:6646311528456261:4
+            token: ${documentId}
+        method: POST
+        url: https://api2.mubu.com/v3/api/colla/message
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - body.code
+        - 0
+-   name: /v3/api/colla/message
+    request:
+        headers:
+            accept: application/json, text/plain, */*
+            accept-encoding: gzip, deflate, br
+            accept-language: zh-CN,zh;q=0.9
+            content-length: '609'
+            content-type: application/json;charset=UTF-8
+            data-unique-id: 0ab1e930-5321-11eb-a1bd-ad0c581d182d
+            jwt-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg
+            member-id: '6646311528456261'
+            origin: https://mubu.com
+            referer: https://mubu.com/
+            request-id: MESSAGE:9564913:6646311528456261:5
+            sec-ch-ua: '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"'
+            sec-ch-ua-mobile: ?0
+            sec-fetch-dest: empty
+            sec-fetch-mode: cors
+            sec-fetch-site: same-site
+            user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+            version: 3.0.0
+            x-request-id: 2446123c-2b79-45ee-b990-9a2a3cd39086
+        json:
+            context:
+                appVersion: 2.0.0.553
+                os: Windows
+                osVersion: NT 6.1
+                platform: web
+            data:
+                message:
+                    content:
+                    -   name: nameChanged
+                        original: 德玛，
+                        title: 德玛，
+                    -   name: nameChanged
+                        original: 德玛，
+                        title: 德玛，
+                    -   name: nameChanged
+                        original: 德玛，
+                        title: 德玛
+                    -   name: nameChanged
+                        original: 德玛
+                        title: 德
+                    -   name: nameChanged
+                        original: 德
+                        title: ''
+                    documentId: ${documentId}
+                    type: CHANGE
+                    version: 1
+            engineType: MUBU
+            messageType: BROADCAST
+            reqId: 5
+            requestId: MESSAGE:9564913:6646311528456261:5
+            token: ${documentId}
+        method: POST
+        url: https://api2.mubu.com/v3/api/colla/message
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - body.code
+        - 0
+-   name: /v3/api/refer/search_refers
+    request:
+        headers:
+            accept: application/json, text/plain, */*
+            accept-encoding: gzip, deflate, br
+            accept-language: zh-CN,zh;q=0.9
+            content-length: '57'
+            content-type: application/json;charset=UTF-8
+            data-unique-id: 0ab1e930-5321-11eb-a1bd-ad0c581d182d
+            jwt-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg
+            origin: https://mubu.com
+            referer: https://mubu.com/
+            sec-ch-ua: '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"'
+            sec-ch-ua-mobile: ?0
+            sec-fetch-dest: empty
+            sec-fetch-mode: cors
+            sec-fetch-site: same-site
+            user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+            x-request-id: c5ddb0ec-5e19-4bb0-bb6a-1fe9dc649669
+        json:
+            docId: ${documentId}
+            keywords: 德玛，
+            option: 1
+        method: POST
+        url: https://api2.mubu.com/v3/api/refer/search_refers
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - body.code
+        - 0
+-   name: /v3/api/colla/message
+    request:
+        headers:
+            accept: application/json, text/plain, */*
+            accept-encoding: gzip, deflate, br
+            accept-language: zh-CN,zh;q=0.9
+            content-length: '358'
+            content-type: application/json;charset=UTF-8
+            data-unique-id: 0ab1e930-5321-11eb-a1bd-ad0c581d182d
+            jwt-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg
+            member-id: '6646311528456261'
+            origin: https://mubu.com
+            referer: https://mubu.com/
+            request-id: MESSAGE:9564913:6646311528456261:7
+            sec-ch-ua: '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"'
+            sec-ch-ua-mobile: ?0
+            sec-fetch-dest: empty
+            sec-fetch-mode: cors
+            sec-fetch-site: same-site
+            user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+            version: 3.0.0
+            x-request-id: 5fce5550-ec22-44d6-9798-8ad1ce7cb66b
+        json:
+            context:
+                appVersion: 2.0.0.553
+                os: Windows
+                osVersion: NT 6.1
+                platform: web
+            data:
+                message:
+                    content:
+                    -   name: nameChanged
+                        original: ''
+                        title: demo
+                    documentId: ${documentId}
+                    type: CHANGE
+                    version: 2
+            engineType: MUBU
+            messageType: BROADCAST
+            reqId: 7
+            requestId: MESSAGE:9564913:6646311528456261:7
+            token: ${documentId}
+        method: POST
+        url: https://api2.mubu.com/v3/api/colla/message
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - body.code
+        - 0
+-   name: /v3/api/colla/message
+    request:
+        headers:
+            accept: application/json, text/plain, */*
+            accept-encoding: gzip, deflate, br
+            accept-language: zh-CN,zh;q=0.9
+            content-length: '516'
+            content-type: application/json;charset=UTF-8
+            data-unique-id: 0ab1e930-5321-11eb-a1bd-ad0c581d182d
+            jwt-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg
+            member-id: '6646311528456261'
+            origin: https://mubu.com
+            referer: https://mubu.com/
+            request-id: MESSAGE:9564913:6646311528456261:9
+            sec-ch-ua: '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"'
+            sec-ch-ua-mobile: ?0
+            sec-fetch-dest: empty
+            sec-fetch-mode: cors
+            sec-fetch-site: same-site
+            user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+            version: 3.0.0
+            x-request-id: 08c9b63d-8c43-4b65-a8e5-270b2ed635e8
+        json:
+            context:
+                appVersion: 2.0.0.553
+                os: Windows
+                osVersion: NT 6.1
+                platform: web
+            data:
+                message:
+                    content:
+                    -   name: nameChanged
+                        original: demo
+                        title: demo2
+                    -   created:
+                        -   index: 0
+                            node:
+                                children: []
+                                id: qfeEyBHc8n
+                                modified: 1610268787483
+                                text: ''
+                            parentId: null
+                            path:
+                            - nodes
+                            - 0
+                        name: create
+                    documentId: ${documentId}
+                    type: CHANGE
+                    version: 3
+            engineType: MUBU
+            messageType: BROADCAST
+            reqId: 9
+            requestId: MESSAGE:9564913:6646311528456261:9
+            token: ${documentId}
+        method: POST
+        url: https://api2.mubu.com/v3/api/colla/message
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - body.code
+        - 0
+-   name: /v3/api/refer/search_refers
+    request:
+        headers:
+            accept: application/json, text/plain, */*
+            accept-encoding: gzip, deflate, br
+            accept-language: zh-CN,zh;q=0.9
+            content-length: '53'
+            content-type: application/json;charset=UTF-8
+            data-unique-id: 0ab1e930-5321-11eb-a1bd-ad0c581d182d
+            jwt-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg
+            origin: https://mubu.com
+            referer: https://mubu.com/
+            sec-ch-ua: '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"'
+            sec-ch-ua-mobile: ?0
+            sec-fetch-dest: empty
+            sec-fetch-mode: cors
+            sec-fetch-site: same-site
+            user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+            x-request-id: e976a316-8d4f-46f2-9e78-904495c0154c
+        json:
+            docId: ${documentId}
+            keywords: demo2
+            option: 1
+        method: POST
+        url: https://api2.mubu.com/v3/api/refer/search_refers
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - body.code
+        - 0
+-   name: /v3/api/colla/message
+    request:
+        headers:
+            accept: application/json, text/plain, */*
+            accept-encoding: gzip, deflate, br
+            accept-language: zh-CN,zh;q=0.9
+            content-length: '657'
+            content-type: application/json;charset=UTF-8
+            data-unique-id: 0ab1e930-5321-11eb-a1bd-ad0c581d182d
+            jwt-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg
+            member-id: '6646311528456261'
+            origin: https://mubu.com
+            referer: https://mubu.com/
+            request-id: MESSAGE:9564913:6646311528456261:11
+            sec-ch-ua: '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"'
+            sec-ch-ua-mobile: ?0
+            sec-fetch-dest: empty
+            sec-fetch-mode: cors
+            sec-fetch-site: same-site
+            user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+            version: 3.0.0
+            x-request-id: eee66d2f-8639-4f2f-ab49-6c0637f9f1b8
+        json:
+            context:
+                appVersion: 2.0.0.553
+                os: Windows
+                osVersion: NT 6.1
+                platform: web
+            data:
+                message:
+                    content:
+                    -   name: update
+                        updated:
+                        -   original:
+                                id: qfeEyBHc8n
+                                modified: 1610268787483
+                                text: ''
+                            path:
+                            - nodes
+                            - 0
+                            updated:
+                                id: qfeEyBHc8n
+                                modified: 1610268789083
+                                text: <span>1</span>
+                    -   created:
+                        -   index: 1
+                            node:
+                                children: []
+                                id: 6QtkZUAEhW
+                                modified: 1610268789273
+                                text: ''
+                            parentId: null
+                            path:
+                            - nodes
+                            - 1
+                        name: create
+                    documentId: ${documentId}
+                    type: CHANGE
+                    version: 4
+            engineType: MUBU
+            messageType: BROADCAST
+            reqId: 11
+            requestId: MESSAGE:9564913:6646311528456261:11
+            token: ${documentId}
+        method: POST
+        url: https://api2.mubu.com/v3/api/colla/message
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - body.code
+        - 0
+-   name: /v3/api/colla/message
+    request:
+        headers:
+            accept: application/json, text/plain, */*
+            accept-encoding: gzip, deflate, br
+            accept-language: zh-CN,zh;q=0.9
+            content-length: '657'
+            content-type: application/json;charset=UTF-8
+            data-unique-id: 0ab1e930-5321-11eb-a1bd-ad0c581d182d
+            jwt-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg
+            member-id: '6646311528456261'
+            origin: https://mubu.com
+            referer: https://mubu.com/
+            request-id: MESSAGE:9564913:6646311528456261:13
+            sec-ch-ua: '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"'
+            sec-ch-ua-mobile: ?0
+            sec-fetch-dest: empty
+            sec-fetch-mode: cors
+            sec-fetch-site: same-site
+            user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+            version: 3.0.0
+            x-request-id: 509b528d-c5b1-4935-a5f2-984f2881d9ca
+        json:
+            context:
+                appVersion: 2.0.0.553
+                os: Windows
+                osVersion: NT 6.1
+                platform: web
+            data:
+                message:
+                    content:
+                    -   name: update
+                        updated:
+                        -   original:
+                                id: 6QtkZUAEhW
+                                modified: 1610268789273
+                                text: ''
+                            path:
+                            - nodes
+                            - 1
+                            updated:
+                                id: 6QtkZUAEhW
+                                modified: 1610268790251
+                                text: <span>3</span>
+                    -   created:
+                        -   index: 2
+                            node:
+                                children: []
+                                id: bNbTGgcoUN
+                                modified: 1610268790409
+                                text: ''
+                            parentId: null
+                            path:
+                            - nodes
+                            - 2
+                        name: create
+                    documentId: ${documentId}
+                    type: CHANGE
+                    version: 5
+            engineType: MUBU
+            messageType: BROADCAST
+            reqId: 13
+            requestId: MESSAGE:9564913:6646311528456261:13
+            token: ${documentId}
+        method: POST
+        url: https://api2.mubu.com/v3/api/colla/message
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - body.code
+        - 0
+-   name: /v3/api/colla/message
+    request:
+        headers:
+            accept: application/json, text/plain, */*
+            accept-encoding: gzip, deflate, br
+            accept-language: zh-CN,zh;q=0.9
+            content-length: '504'
+            content-type: application/json;charset=UTF-8
+            data-unique-id: 0ab1e930-5321-11eb-a1bd-ad0c581d182d
+            jwt-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg
+            member-id: '6646311528456261'
+            origin: https://mubu.com
+            referer: https://mubu.com/
+            request-id: MESSAGE:9564913:6646311528456261:15
+            sec-ch-ua: '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"'
+            sec-ch-ua-mobile: ?0
+            sec-fetch-dest: empty
+            sec-fetch-mode: cors
+            sec-fetch-site: same-site
+            user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+            version: 3.0.0
+            x-request-id: 46e66fa0-206d-4e6b-b958-f1aa11febc3d
+        json:
+            context:
+                appVersion: 2.0.0.553
+                os: Windows
+                osVersion: NT 6.1
+                platform: web
+            data:
+                message:
+                    content:
+                    -   name: update
+                        updated:
+                        -   original:
+                                id: bNbTGgcoUN
+                                modified: 1610268790409
+                                text: ''
+                            path:
+                            - nodes
+                            - 2
+                            updated:
+                                id: bNbTGgcoUN
+                                modified: 1610268791292
+                                text: <span>5</span>
+                    documentId: ${documentId}
+                    type: CHANGE
+                    version: 6
+            engineType: MUBU
+            messageType: BROADCAST
+            reqId: 15
+            requestId: MESSAGE:9564913:6646311528456261:15
+            token: ${documentId}
+        method: POST
+        url: https://api2.mubu.com/v3/api/colla/message
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - body.code
+        - 0
+-   name: /v3/api/colla/message
+    request:
+        headers:
+            accept: application/json, text/plain, */*
+            accept-encoding: gzip, deflate, br
+            accept-language: zh-CN,zh;q=0.9
+            content-length: '461'
+            content-type: application/json;charset=UTF-8
+            data-unique-id: 0ab1e930-5321-11eb-a1bd-ad0c581d182d
+            jwt-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg
+            member-id: '6646311528456261'
+            origin: https://mubu.com
+            referer: https://mubu.com/
+            request-id: MESSAGE:9564913:6646311528456261:16
+            sec-ch-ua: '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"'
+            sec-ch-ua-mobile: ?0
+            sec-fetch-dest: empty
+            sec-fetch-mode: cors
+            sec-fetch-site: same-site
+            user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+            version: 3.0.0
+            x-request-id: 201ac65c-6072-4986-9b99-c62000733b05
+        json:
+            context:
+                appVersion: 2.0.0.553
+                os: Windows
+                osVersion: NT 6.1
+                platform: web
+            data:
+                message:
+                    content:
+                    -   created:
+                        -   index: 3
+                            node:
+                                children: []
+                                id: JxG3xETMql
+                                modified: 1610268791449
+                                text: ''
+                            parentId: null
+                            path:
+                            - nodes
+                            - 3
+                        name: create
+                    documentId: ${documentId}
+                    type: CHANGE
+                    version: 7
+            engineType: MUBU
+            messageType: BROADCAST
+            reqId: 16
+            requestId: MESSAGE:9564913:6646311528456261:16
+            token: ${documentId}
+        method: POST
+        url: https://api2.mubu.com/v3/api/colla/message
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - body.code
+        - 0
+-   name: /v3/api/colla/message
+    request:
+        headers:
+            accept: application/json, text/plain, */*
+            accept-encoding: gzip, deflate, br
+            accept-language: zh-CN,zh;q=0.9
+            content-length: '504'
+            content-type: application/json;charset=UTF-8
+            data-unique-id: 0ab1e930-5321-11eb-a1bd-ad0c581d182d
+            jwt-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg
+            member-id: '6646311528456261'
+            origin: https://mubu.com
+            referer: https://mubu.com/
+            request-id: MESSAGE:9564913:6646311528456261:18
+            sec-ch-ua: '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"'
+            sec-ch-ua-mobile: ?0
+            sec-fetch-dest: empty
+            sec-fetch-mode: cors
+            sec-fetch-site: same-site
+            user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+            version: 3.0.0
+            x-request-id: 6a7cbca8-4559-43b0-a343-b192d2bb80c6
+        json:
+            context:
+                appVersion: 2.0.0.553
+                os: Windows
+                osVersion: NT 6.1
+                platform: web
+            data:
+                message:
+                    content:
+                    -   name: update
+                        updated:
+                        -   original:
+                                id: JxG3xETMql
+                                modified: 1610268791449
+                                text: ''
+                            path:
+                            - nodes
+                            - 3
+                            updated:
+                                id: JxG3xETMql
+                                modified: 1610268792900
+                                text: <span>6</span>
+                    documentId: ${documentId}
+                    type: CHANGE
+                    version: 8
+            engineType: MUBU
+            messageType: BROADCAST
+            reqId: 18
+            requestId: MESSAGE:9564913:6646311528456261:18
+            token: ${documentId}
+        method: POST
+        url: https://api2.mubu.com/v3/api/colla/message
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - body.code
+        - 0
+-   name: /v3/api/list/batch_delete
+    request:
+        headers:
+            accept: application/json, text/plain, */*
+            accept-encoding: gzip, deflate, br
+            accept-language: zh-CN,zh;q=0.9
+            content-length: '37'
+            content-type: application/json;charset=UTF-8
+            data-unique-id: 0ab1e930-5321-11eb-a1bd-ad0c581d182d
+            jwt-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiOTU2NDkxMyIsImV4cCI6MTYxMjg2MDc3MCwiaWF0IjoxNjEwMjY4NzcwfQ.69kT7kwvkk5WkDDBYVFw81c1tnFpA7UCy6WPji5McJPuT0hfK1L-uwkMIcYMzUTUWfBc534pntZSntsoVx5pBg
+            origin: https://mubu.com
+            referer: https://mubu.com/
+            sec-ch-ua: '"Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"'
+            sec-ch-ua-mobile: ?0
+            sec-fetch-dest: empty
+            sec-fetch-mode: cors
+            sec-fetch-site: same-site
+            user-agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36
+                (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
+            version: 3.0.0
+            x-request-id: 6e359fc7-2b95-48e7-a418-80907c5fb860
+        json:
+            docs:
+            - 37dJLmYwNJh
+            folders: []
+        method: POST
+        url: https://api2.mubu.com/v3/api/list/batch_delete
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - body.code
+        - 0
