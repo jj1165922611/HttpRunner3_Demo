@@ -282,3 +282,4 @@ teststeps:
     -   eq:
         - body.code
         - 0
+    -   eq: [body.data.roomVersion,-1]

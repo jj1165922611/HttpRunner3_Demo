@@ -268,6 +268,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
+            .assert_equal("body.data.roomVersion", -1)
         ),
     ]
 
